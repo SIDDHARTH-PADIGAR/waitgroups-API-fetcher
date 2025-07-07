@@ -13,17 +13,17 @@ You're scraping or pinging multiple endpoints, and you want to do it fast. You d
 
   * It performs an HTTP GET request.
   * It defers `wg.Done()` to signal task completion.
-* The main function calls `wg.Wait()` — which blocks until **every single fetch has completed**.
+* The main function calls `wg.Wait()` which blocks until **every single fetch has completed**.
 
 ---
 
 ## Why It Worked
 
 * Each fetch runs in a separate goroutine, which allows all network calls to happen concurrently.
-* The `WaitGroup` acts like a sync barrier — the main goroutine halts at `wg.Wait()` until every worker calls `wg.Done()`.
+* The `WaitGroup` acts like a sync barrier, the main goroutine halts at `wg.Wait()` until every worker calls `wg.Done()`.
 * This ensures we don’t exit the program early while other goroutines are still doing their job.
 
-> Without `Wait()`, the main function would exit before any or all of the fetches finish — and you'd see nothing, or partial output at best.
+> Without `Wait()`, the main function would exit before any or all of the fetches finish and you'd see nothing, or partial output at best.
 
 ### Output
 
