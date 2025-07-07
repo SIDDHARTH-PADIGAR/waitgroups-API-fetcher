@@ -1,6 +1,6 @@
 ## Use Case: Coordinating Multiple Concurrent Web Fetches
 
-You're scraping or pinging multiple endpoints, and you want to do it fast. You don’t want to fetch each URL one by one — instead, you fire off all requests concurrently and wait until **all of them finish**, before moving on.
+You're scraping or pinging multiple endpoints, and you want to do it fast. You don’t want to fetch each URL one by one, instead, you fire off all requests concurrently and wait until **all of them finish**, before moving on.
 
 ---
 
